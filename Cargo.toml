@@ -1,0 +1,10 @@
+[package]
+name = "sphere"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+block-mesh = "0.2.0"
+gl = "0.14.0"
+glfw = "0.54.0"
+nalgebra-glm = "0.18.0"
