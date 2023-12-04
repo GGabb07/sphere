@@ -41,19 +41,19 @@ impl Camera {
 
         if let Action::Release = win.get_key(Key::Right) {
         } else {
-            self.yaw += delta * self.sensitivity;
+            self.yaw += self.sensitivity;
         }
         if let Action::Release = win.get_key(Key::Left) {
         } else {
-            self.yaw -= delta * self.sensitivity;
+            self.yaw -= self.sensitivity;
         }
         if let Action::Release = win.get_key(Key::Down) {
         } else {
-            self.pitch += delta * self.sensitivity;
+            self.pitch += self.sensitivity;
         }
         if let Action::Release = win.get_key(Key::Up) {
         } else {
-            self.pitch -= delta * self.sensitivity;
+            self.pitch -= self.sensitivity;
         }
 
         if self.pitch > FRAC_PI_2 {
@@ -101,6 +101,23 @@ impl Camera {
         if let Action::Release = win.get_key(Key::LeftShift) {
         } else {
             self.pos.y += speed;
+        }
+
+        if let Action::Release = win.get_key(Key::I) {
+        } else {
+            self.pos.z += speed;
+        }
+        if let Action::Release = win.get_key(Key::K) {
+        } else {
+            self.pos.z -= speed;
+        }
+        if let Action::Release = win.get_key(Key::L) {
+        } else {
+            self.pos.x += speed;
+        }
+        if let Action::Release = win.get_key(Key::J) {
+        } else {
+            self.pos.x -= speed;
         }
 
         // output.fill_with_identity();
