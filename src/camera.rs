@@ -120,7 +120,7 @@ impl Camera {
             self.pos.x -= speed;
         }
 
-        // output.fill_with_identity();
+        output.fill_with_identity();
         *output = self.perspective;
         *output = rotate_x(output, self.pitch);
         *output = rotate_y(output, self.yaw);

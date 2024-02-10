@@ -124,7 +124,7 @@ fn create_window() -> (Glfw, PWindow, GlfwReceiver<(f64, WindowEvent)>) {
     glfw.window_hint(WindowHint::Visible(false));
 
     let (mut window, events) = glfw
-        .create_window(1280, 720, "Window Creation", WindowMode::Windowed)
+        .create_window(1280, 720, "Gabbo's sphere", WindowMode::Windowed)
         .expect("Could not create the GLFW Window");
 
     window.set_all_polling(true);

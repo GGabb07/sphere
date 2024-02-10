@@ -33,10 +33,7 @@ impl Shader {
                 let mut log_len = 0_i32;
                 gl::GetShaderInfoLog(vert, 1024, &mut log_len, v.as_mut_ptr().cast());
                 v.set_len(log_len as usize);
-                println!(
-                    "Vertex Shader Error: {}",
-                    String::from_utf8_lossy(v.as_slice())
-                );
+                println!("Vertex Shader Error: {}", String::from_utf8_lossy(&v));
             }
 
             const FRAG_SHADER: &str = include_str!("shaders/frag.glsl");
@@ -55,10 +52,7 @@ impl Shader {
                 let mut log_len = 0_i32;
                 gl::GetShaderInfoLog(frag, 1024, &mut log_len, v.as_mut_ptr().cast());
                 v.set_len(log_len as usize);
-                println!(
-                    "Frag Shader Error: {}",
-                    String::from_utf8_lossy(v.as_slice())
-                );
+                println!("Frag Shader Error: {}", String::from_utf8_lossy(&v));
             }
 
             prog = gl::CreateProgram();
@@ -80,10 +74,7 @@ impl Shader {
                 let mut log_len = 0_i32;
                 gl::GetProgramInfoLog(prog, 1024, &mut log_len, v.as_mut_ptr().cast());
                 v.set_len(log_len as usize);
-                println!(
-                    "Prog Validate Error: {}",
-                    String::from_utf8_lossy(v.as_slice())
-                );
+                println!("Prog Validate Error: {}", String::from_utf8_lossy(&v));
             }
 
             let name = CString::new("proj").unwrap();
@@ -103,14 +94,7 @@ impl Shader {
     }
 
     pub fn set_proj(&self, proj: &Mat4) {
-        unsafe {
-            gl::UniformMatrix4fv(
-                self.proj_loc,
-                1,
-                gl::FALSE,
-                (*proj.data.0.as_ptr()).as_ptr(),
-            )
-        }
+        unsafe { gl::UniformMatrix4fv(self.proj_loc, 1, gl::FALSE, proj.as_ptr()) }
     }
 }
 

@@ -11,7 +11,13 @@ I used [Block Mesh](https://crates.io/crates/block-mesh) to optimize the rendere
 
 ## Commands:
 
-Movements: WASD
-Show borders: Enter
-Camera rotation: Arrow keys AND Mouse movement
-Show Mouse: E
+- Movements: WASD
+- Toggle wireframe: Enter
+- Camera rotation: Arrow keys AND Mouse movement
+- Show mouse: E
+- Reset camera: T
+
+## Screenshots:
+
+- The sphere from the outside ![The sphere](/img/sphere.jpg)
+- The sphere's wireframe (as you can see it is very optimized) ![The sphere's wireframe](/img/wireframe.jpg)
